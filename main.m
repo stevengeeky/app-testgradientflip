@@ -118,7 +118,7 @@ for i = 1:length(bvecs_files)
             numlongfibers = numlongfibers + 1;
         end
     end
-    long_fibers(i) = num_longfibers;
+    long_fibers(i) = numlongfibers;
 end
 
 [M, I] = max(long_fibers);
