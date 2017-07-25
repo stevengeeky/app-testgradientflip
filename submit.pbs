@@ -3,13 +3,11 @@
 #PBS -N app-testgradientflip
 #PBS -V
 
-if [ $ENV == "IUHPC" ]; the
-          cd $PBS_O_WORKDIR
-
-          module load matlab
-   	  module load spm
+if [ $ENV == "IUHPC" ]; then
+	cd $PBS_O_WORKDIR
+	module load matlab
+   	module load spm
 fi
-
 
 export MATLABPATH=$MATLABPATH:$SERVICE_DIR
 matlab -nodisplay -nosplash -r main
