@@ -10,7 +10,7 @@ switch getenv('ENV')
         disp('loading paths (HPC)')
         addpath(genpath('/N/u/hayashis/BigRed2/git/vistasoft'))
         addpath(genpath('/N/u/hayashis/BigRed2/git/jsonlab'))
-    case getenv('VM')
+    case 'VM'
         disp('loading paths (VM)')
         addpath(genpath('/usr/local/jsonlab'))
         addpath(genpath('/usr/local/vistasoft'))
