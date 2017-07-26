@@ -39,7 +39,7 @@ dwParams.dwOutMm    = res;
 if isprop(config, 'eddyCorrect')
 	dwParams.eddyCorrect = config.eddyCorrect;
 end
-dirs = {'noflip', 'xflip', 'yflip', 'zflip')
+dirs = {'noflip', 'xflip', 'yflip', 'zflip'}
 for i = 1:length(dirs)
 	mkdir(char(dir(i)))
 end
