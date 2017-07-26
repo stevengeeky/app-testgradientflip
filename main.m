@@ -130,12 +130,12 @@ end
 flipdirection = {'no flip', 'x flip', 'y flip' , 'z flip'};
 
 fileID = fopen('results.txt', 'w');
-fprintf(fileID, 'Gradient Flip Recommended: %s', char(flipdirection(I)));
-fprintf(fileID, 'Number of long fibers:');
-fprintf(fileID, 'no flip: %d', long_fibers(1));
-fprintf(fileID, 'x flip: %d', long_fibers(2));
-fprintf(fileID, 'y flip: %d', long_fibers(3));
-fprintf(fileID, 'z flip: %d', long_fibers(4));
+fprintf(fileID, 'Gradient Flip Recommended: %s \n', char(flipdirection(I)));
+fprintf(fileID, 'Number of long fibers:\n');
+fprintf(fileID, 'no flip: %d \n', long_fibers(1));
+fprintf(fileID, 'x flip: %d \n', long_fibers(2));
+fprintf(fileID, 'y flip: %d \n', long_fibers(3));
+fprintf(fileID, 'z flip: %d \n', long_fibers(4));
 fclose(fileID);
 
 end
