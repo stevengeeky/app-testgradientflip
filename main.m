@@ -33,13 +33,16 @@ dwParams.phaseEncodeDir    = 2;
 dwParams.rotateBvecsWithRx = 0;
 dwParams.rotateBvecsWithCanXform = 0;
 dwParams.bvalsFile  = 'dwi.bvals';
-dwParams.outDir     = pwd;
+% dwParams.outDir     = pwd;
 dwParams.dwOutMm    = res;
 
 if isprop(config, 'eddyCorrect')
 	dwParams.eddyCorrect = config.eddyCorrect;
 end
-dwParams.outDir = './';
+dirs = {'noflip', 'xflip', 'yflip', 'zflip')
+for i = 1:length(dirs)
+	mkdir(char(dir(i)))
+end
 
 bvecs_files = {'dwi_noflip.bvecs', 'dwi_xflip.bvecs', 'dwi_yflip.bvecs',...
         'dwi_zflip.bvecs'};
@@ -82,6 +85,7 @@ long_fibers = zeros(1,4);
     
 %% loop through flips
 for i = 1:length(bvecs_files)
+    dwParams.outDir = strcat('./', char(dirs(i));
     dwParams.dt6BaseName = char(trilin_name(i));
     dwParams.bvecsFile  = char(bvecs_files(i));
     dtiInit(config.dwi, config.t1, dwParams)
