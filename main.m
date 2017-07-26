@@ -91,7 +91,7 @@ for i = 1:length(bvecs_files)
     dtiInit(config.dwi, config.t1, dwParams)
     
     [dt6, xformToAcpc, mmPerVox] = dtiLoadTensorsFromNifti(...
-            strcat('./',char(trilin_name(i)),'/bin/tensors.nii.gz'));
+            strcat('./',char(dirs(i)), '/', char(trilin_name(i)),'/bin/tensors.nii.gz'));
     % Compute FA at every voxel
     fa = dtiComputeFA(dt6);
     % Sometimes noise can cause impossible FA values so we clip them
