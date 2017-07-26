@@ -41,7 +41,7 @@ if isprop(config, 'eddyCorrect')
 end
 dirs = {'noflip', 'xflip', 'yflip', 'zflip'}
 for i = 1:length(dirs)
-	mkdir(char(dir(i)))
+	mkdir(char(dirs(i)))
 end
 
 bvecs_files = {'dwi_noflip.bvecs', 'dwi_xflip.bvecs', 'dwi_yflip.bvecs',...
@@ -85,7 +85,7 @@ long_fibers = zeros(1,4);
     
 %% loop through flips
 for i = 1:length(bvecs_files)
-    dwParams.outDir = strcat('./', char(dirs(i));
+    dwParams.outDir = strcat('./', char(dirs(i)));
     dwParams.dt6BaseName = char(trilin_name(i));
     dwParams.bvecsFile  = char(bvecs_files(i));
     dtiInit(config.dwi, config.t1, dwParams)
