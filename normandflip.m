@@ -33,15 +33,15 @@ dlmwrite('dwi_noflip.bvecs', bvecs);
 
 bvecs_xflip = bvecs;
 bvecs_xflip(1,:) = -bvecs(1,:);
-dlmwrite('dwi_xflip.bvecs', bvecs);
+dlmwrite('dwi_xflip.bvecs', bvecs_xflip);
 
 bvecs_yflip = bvecs;
 bvecs_yflip(2,:) = -bvecs(2,:);
-dlmwrite('dwi_yflip.bvecs', bvecs);
+dlmwrite('dwi_yflip.bvecs', bvecs_yflip);
 
 bvecs_zflip = bvecs;
 bvecs_zflip(3,:) = -bvecs(3,:);
-dlmwrite('dwi_zflip.bvecs', bvecs);
+dlmwrite('dwi_zflip.bvecs', bvecs_zflip);
 
 end
 
