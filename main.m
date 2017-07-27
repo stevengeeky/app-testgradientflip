@@ -143,7 +143,7 @@ results.noflip = long_fibers(1);
 results.xflip = long_fibers(2);
 results.yflip = long_fibers(3);
 results.zflip = long_fibers(4);
-savejson('', results, results.json);
+savejson('', results, 'results.json');
 
 end
 
