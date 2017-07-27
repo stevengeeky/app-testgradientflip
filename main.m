@@ -23,7 +23,8 @@ normandflip(config)
 
 dwi = niftiRead(config.dwi);
 
-res = dwi.pixdim(1:3);
+res = dwi.pi
+dim(1:3);
 clear dwi
 
 dwParams = dtiInitParams;
@@ -46,15 +47,6 @@ trilin_name = {'noflip_dti_trilin', 'xflip_dti_trilin', 'yflip_dti_trilin',...
         'zflip_dti_trilin'};
 fg_names = {'noflip_fg', 'xflip_fg', 'yflip_fg', 'zflip_fg'};
 
-if config.flip2directions
-    dirs = {'noflip', 'xflip', 'yflip', 'zflip', 'xy_flip', 'yz_flip', 'xz_flip'};
-    bvecs_files = {'dwi_noflip.bvecs', 'dwi_xflip.bvecs', 'dwi_yflip.bvecs',...
-        'dwi_zflip.bvecs', 'dwi_xyflip.bvecs', 'dwi_yzflip.bvecs', 'dwi_xzflip.bvecs'};
-    trilin_name = {'noflip_dti_trilin', 'xflip_dti_trilin', 'yflip_dti_trilin',...
-        'zflip_dti_trilin', 'xyflip_dti_trilin',' yzflip_dti_trilin', 'xzflip_dti_trilin'};
-    fg_names = {'noflip_fg', 'xflip_fg', 'yflip_fg', 'zflip_fg',...
-        'xyflip_fg', 'yzflip_fg', 'xzflip_fg'};
-end
     
 for i = 1:length(dirs)
 	mkdir(char(dirs(i)))
@@ -136,8 +128,7 @@ end
 
 [M, I] = max(long_fibers);
 
-flipdirection = {'no flip', 'x flip', 'y flip' , 'z flip', 'xy flip',...
-    'yz flip', 'xz flip'};
+flipdirection = {'no flip', 'x flip', 'y flip' , 'z flip'};
 
 fileID = fopen('results.txt', 'w');
 fprintf(fileID, 'Gradient Flip Recommended: %s \n', char(flipdirection(I)));
@@ -156,11 +147,6 @@ results.noflip = long_fibers(1);
 results.xflip = long_fibers(2);
 results.yflip = long_fibers(3);
 results.zflip = long_fibers(4);
-if config.flip2directions
-    results.xyflip = long_fibers(5);
-    results.yzflip = long_fibers(6);
-    results.xzflip = long_fibers(7);
-end
 savejson('', results, 'results.json');
 
 end
