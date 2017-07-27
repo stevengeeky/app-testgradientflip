@@ -142,7 +142,7 @@ flipdirection = {'no flip', 'x flip', 'y flip' , 'z flip', 'xy flip',...
 fileID = fopen('results.txt', 'w');
 fprintf(fileID, 'Gradient Flip Recommended: %s \n', char(flipdirection(I)));
 fprintf(fileID, 'Number of long fibers:\n');
-for line = 1:length(longfibers)
+for line = 1:length(long_fibers)
     fprintf(fileID, '%s: %d \n', char(flipdirection(line)), long_fibers(line));
 end
 % fprintf(fileID, 'no flip: %d \n', long_fibers(1));
