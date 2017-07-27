@@ -43,22 +43,5 @@ bvecs_zflip = bvecs;
 bvecs_zflip(3,:) = -bvecs(3,:);
 dlmwrite('dwi_zflip.bvecs', bvecs_zflip);
 
-if config.flip2directions
-   bvecs_xyflip = bvecs;
-   bvecs_xyflip(1,:) = -bvecs(1,:);
-   bvecs_xyflip(2,:) = -bvecs(2,:);
-   dlmwrite('dwi_xyflip.bvecs', bvecs_xyflip);
-   
-   bvecs_yzflip = bvecs;
-   bvecs_yzflip(2,:) = -bvecs(2,:);
-   bvecs_yzflip(3,:) = -bvecs(3,:);
-   dlmwrite('dwi_yzflip.bvecs', bvecs_yzflip);
-   
-   bvecs_xzflip = bvecs;
-   bvecs_xzflip(1,:) = -bvecs(1,:);
-   bvecs_xzflip(3,:) = -bvecs(3,:);
-   dlmwrite('dwi_xzflip.bvecs', bvecs_xzflip);
-end
-
 end
 
