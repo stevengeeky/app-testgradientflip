@@ -23,8 +23,7 @@ normandflip(config)
 
 dwi = niftiRead(config.dwi);
 
-res = dwi.pi
-dim(1:3);
+res = dwi.pixdim(1:3);
 clear dwi
 
 dwParams = dtiInitParams;
