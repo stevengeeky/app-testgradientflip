@@ -36,7 +36,9 @@ if [ -f jobid ]; then
         exit 0
     fi
     if [ $jobstate == "R" ]; then
-        echo "Running"
+        subid=$(cat jobid | cut -d '.' -f 1)
+	logname="stdout.$subid.*.log"
+        tail -1 $logname
         exit 0
     fi
     if [ $jobstate == "H" ]; then
