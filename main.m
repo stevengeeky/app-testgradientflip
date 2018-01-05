@@ -28,20 +28,22 @@ clear dwi
 
 dwParams = dtiInitParams;
 dwParams.clobber           =  1;
-% dwParams.eddyCorrect       = -1;
-dwParams.eddyCorrect       = 1;
+dwParams.eddyCorrect       = -1;
 dwParams.phaseEncodeDir    = 2; 
-%dwParams.rotateBvecsWithRx = 0;
-%dwParams.rotateBvecsWithCanXform = 0;
-dwParams.rotateBvecsWithRx = 1;
-dwParams.rotateBvecsWithCanXform = 1;
+dwParams.rotateBvecsWithRx = 0;
+dwParams.rotateBvecsWithCanXform = 0;
 dwParams.bvalsFile  = 'dwi.bvals';
 % dwParams.outDir     = pwd;
 dwParams.dwOutMm    = res;
 
-if isprop(config, 'eddyCorrect')
-	dwParams.eddyCorrect = config.eddyCorrect;
+%apply config params
+if isfield(config, 'eddyCorrect')
+    dwParams.eddyCorrect = str2double(config.eddyCorrect);
+    dwParams.rotateBvecsWithRx = config.rotateBvecsWithRx;
+    dwParams.rotateBvecsWithCanXform = config.rotateBvecsWithCanXform;
+    dwParams.phaseEncodeDir    = str2num(config.phaseEncodeDir); 
 end
+
 dirs = {'noflip', 'xflip', 'yflip', 'zflip'};
 bvecs_files = {'dwi_noflip.bvecs', 'dwi_xflip.bvecs', 'dwi_yflip.bvecs',...
         'dwi_zflip.bvecs'};
