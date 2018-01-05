@@ -28,10 +28,13 @@ clear dwi
 
 dwParams = dtiInitParams;
 dwParams.clobber           =  1;
-dwParams.eddyCorrect       = -1;
+% dwParams.eddyCorrect       = -1;
+dwParams.eddyCorrect       = 1;
 dwParams.phaseEncodeDir    = 2; 
-dwParams.rotateBvecsWithRx = 0;
-dwParams.rotateBvecsWithCanXform = 0;
+%dwParams.rotateBvecsWithRx = 0;
+%dwParams.rotateBvecsWithCanXform = 0;
+dwParams.rotateBvecsWithRx = 1;
+dwParams.rotateBvecsWithCanXform = 1;
 dwParams.bvalsFile  = 'dwi.bvals';
 % dwParams.outDir     = pwd;
 dwParams.dwOutMm    = res;
