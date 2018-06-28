@@ -144,7 +144,7 @@ fclose(fileID);
 message_item = struct;
 message_item.type = 'info';
 % 32 used to represent a space (since ' ' doesn't work)
-message_item.msg = strcat(flipdirection{1}, 32, 'recommended');
+message_item.msg = strcat(flipdirection{I}, 32, 'recommended');
 
 plot_item = struct;
 plot_item.type = 'plotly';
