@@ -139,12 +139,26 @@ end
 % fprintf(fileID, 'z flip: %d \n', long_fibers(4));
 fclose(fileID);
 
-results.recommend = char(flipdirection(I));
-results.noflip = long_fibers(1);
-results.xflip = long_fibers(2);
-results.yflip = long_fibers(3);
-results.zflip = long_fibers(4);
-savejson('', results, 'product.json');
+%% product.json generation
+
+message_item = struct;
+message_item.type = 'info';
+% 32 used to represent a space (since ' ' doesn't work)
+message_item.msg = strcat(flipdirection{1}, 32, 'recommended');
+
+plot_item = struct;
+plot_item.type = 'plotly';
+plot_item.name = 'Flip Recommendation';
+plot_item.data = struct;
+plot_item.layout = struct;
+
+plot_item.data.values = long_fibers;
+plot_item.data.labels = flipdirection;
+plot_item.data.type = 'pie';
+plot_item.data = { plot_item.data };
+
+results = { message_item, plot_item };
+savejson('brainlife', results, 'product.json');
 
 end
 

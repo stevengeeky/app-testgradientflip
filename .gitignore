@@ -2,3 +2,6 @@
 test/
 dtiinit/
 config.json
+product.json
+results.txt
+dwi*
