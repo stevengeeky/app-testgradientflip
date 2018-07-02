@@ -148,7 +148,6 @@ message_item.msg = strcat(flipdirection{I}, 32, 'recommended');
 
 plot_item = struct;
 plot_item.type = 'plotly';
-plot_item.name = 'Flip Recommendation';
 plot_item.data = struct;
 plot_item.layout = struct;
 
@@ -156,6 +155,8 @@ plot_item.data.values = long_fibers;
 plot_item.data.labels = flipdirection;
 plot_item.data.type = 'pie';
 plot_item.data = { plot_item.data };
+
+plot_item.layout.title = 'Flip Recommendation';
 
 results = { message_item, plot_item };
 savejson('brainlife', results, 'product.json');
